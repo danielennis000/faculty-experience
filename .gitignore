@@ -15,7 +15,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# Root-only: do not use plain `lib/` or it ignores `src/lib/` (shadcn `cn` helper).
+/lib/
 lib64/
 parts/
 sdist/
