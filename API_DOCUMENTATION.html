@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CreateAI Documentation</title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+    <script src="/password-protection.js?v=20260507b"></script>
+</head>
+
+<body class="docs-page" data-bs-spy="scroll" data-bs-target="#docs-nav" data-bs-root-margin="-100px 0px -40%">
+  <header class="header fixed-top">
+    <div class="branding docs-branding">
+      <div class="container-fluid position-relative py-2">
+        <div class="docs-logo-wrapper gap-2 d-flex">
+          <button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible d-xl-none" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="site-logo">
+            <a class="navbar-brand" href="api.html">
+              <img src="favicon.png" alt="Logo" style="height: 80px; margin-right: 20px;">
+              <span class="logo-text">CreateAI Documentation <span class="text-alt"></span></span>
+            </a>
+            <!-- <span class="badge bg-primary"></span> -->
+          </div>
+        </div>
+
+        <div class="docs-top-utilities d-flex justify-content-end align-items-center gap-3">
+          <div class="top-search-box d-none d-lg-flex">
+            <form class="search-form">
+              <input type="search" placeholder="Search the docs..." name="search" class="form-control search-input"
+                autocomplete="off">
+              <div id="results"></div>
+            </form>
+          </div>
+
+          <a href="https://app-poc.aiml.asu.edu/bf2ab1c90afb439c84dbb93511773c7d" target="_blank"
+            class="btn btn-primary d-none d-lg-flex" role="button">
+            DocuBot
+          </a>
+          <button type="button" class="btn-changelog btn btn-primary d-none d-lg-flex" data-bs-toggle="modal"
+            data-bs-target="#changelogModal">
+            Changelog
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="docs-wrapper">
+    <div id="docs-sidebar" class="docs-sidebar">
+      <div class="top-search-box d-lg-none p-3">
+        <form class="search-form">
+          <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+          <button type="submit" class="btn search-btn" value="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <nav id="docs-nav" class="docs-nav navbar">
+        <ul class="section-items list-unstyled nav flex-column pb-3">
+          <li class="nav-item section-title">
+            <a class="nav-link scrollto" href="#intro">Introduction</a>
+            <ul class="nav flex-column mt-2 lvl2">
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#intro-1">Who are we?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#intro-2">What do we offer?</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item section-title">
+            <a class="nav-link scrollto" href="#usage">Usage</a>
+            <ul class="nav flex-column mt-2 lvl2">
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#usage-1">Token</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#usage-2">Request Method</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#project-owner">Project Owner Token</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item section-title">
+            <a class="nav-link scrollto" href="#methods">Methods</a>
+            <ul class="nav flex-column mt-2 lvl2">
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#search">search method +</a>
+                <ul class="nav flex-column mt-1 lvl3">
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#search-1">Database Providers</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#search-2">Search Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#search-3">Additional Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#search-4">Payload</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#search-5">Response</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#queryV2">queryV2 method +</a>
+                <ul class="nav flex-column mt-1 lvl3">
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-1">Providers & Model Names</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-2">Model Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-3">Search Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-4">Additional Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-5">Payload</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#queryV2-6">Response</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#embeddings">embeddings method +</a>
+                <ul class="nav flex-column mt-1 lvl3">
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#embeddings-1">Providers & Model Names</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#embeddings-2">Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#embeddings-4">Payload</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#embeddings-5">Response</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#chunks">chunks method+</a>
+                <ul class="nav flex-column mt-1 lvl3">
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#chunks-1">Providers & Model Names</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#chunks-2">Params</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#chunks-4">Payload</a>
+                  </li>
+                  <li class="nav-item section-child">
+                    <a class="nav-link scrollto" href="#chunks-5">Response</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item section-title">
+            <a class="nav-link scrollto" href="#errors">Errors</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <div class="docs-content">
+      <div class="container">
+        <article class="docs-article" id="intro">
+
+          <header class="docs-header">
+            <h1 class="docs-heading">Introduction <span class="docs-time">May 09, 2025</span></h1>
+            <section class="docs-intro">
+            </section>
+          </header>
+
+          <section class="docs-section" id="intro-1">
+            <h2 class="section-heading">Who are we?</h2>
+            <p>CreateAI is a platform designed to support advanced interactions with large language models (LLMs). The
+              platform supports 25+ large language models capable of audio, image and text modality. The documentation
+              provided here aims to offer all necessary details about how to effectively use our APIs, including
+              descriptions of payloads, parameters, response formats, and full API specifications.
+            </p>
+            <div class="callout-block callout-block-info">
+              <div class="content">
+                <h4 class="callout-title">Note</h4>
+                <p>
+                  <em>The DocuBot link on the far right is available for you to chat to our bot about the documentation
+                    or any other API related help. If you get a 404 error, kindly contact Siddharth Jain at
+                    sjain238@asu.edu regarding access to the bot. Incase the bot does not work well for you feel free to
+                    contact your administrator regarding further assistance. Thank you!</em>
+                </p>
+              </div>
+            </div>
+
+            <div class="callout-block callout-block-warning">
+              <div class="content">
+                <h4 class="callout-title">Warning</h4>
+                <p>This documentation is still under development and might be incomplete. Please contact your
+                  administrator incase something goes wrong.</p>
+              </div>
+            </div>
+          </section>
+
+          <article class="docs-article" id="usage">
+            <header class="docs-header">
+              <h1 class="docs-heading">Usage</h1>
+              <section class="docs-intro">
+              </section>
+            </header>
+
+            <section class="docs-section" id="usage-1">
+              <h2 class="section-heading">Token</h2>
+              <p>To use our platform, you will first need a token. Please contact <a
+                  href="mailto:Ayat.Sweid@asu.edu">Ayat Sweid</a> (Ayat.Sweid@asu.edu) or <a
+                  href="mailto:Paul.Alvarado.1@asu.edu">Paul Alvarado</a> (Paul.Alvarado.1@asu.edu) for API access
+                token. You will also be given an API for your department or team to access the platform.</p>
+            </section>
+
+            <section class="docs-section" id="usage-2">
+              <h2 class="section-heading">Request Method</h2>
+              <p>Our platform supports various methods depending on what you want to do. We support both
+                <strong>REST</strong> and <strong>WebSocket</strong> methods for most of the methods, which will be
+                detailed in the corresponding method section below. After the August 29th update, we have a new way of
+                calling various methods. The method in the URL stays <code>queryV2</code> for REST and action stays
+                <code>queryV2</code> for WebSocket, but with an additional parameter in the payload called
+                <code>endpoint</code>, which can be one of the following: <code>"speech"</code>, <code>"image"</code>,
+                <code>"vision"</code>, or <code>"audio"</code>.
+              </p>
+
+              <h4>URLs</h4>
+              <div class="docs-code-block shadow-lg rounded">
+                <ul>
+                  <li>
+                    <strong class="me-1">REST:</strong>
+                    <code>https://api-main-beta.aiml.asu.edu/{method}</code><br>
+                    Your access token goes into the authorization header as a bearer token.
+                  </li>
+                  <li>
+                    <strong class="me-1">WebSocket:</strong>
+                    <code>wss://apiws-main-beta.aiml.asu.edu/?access_token={access_token}</code>
+                  </li>
+                </ul>
+              </div>
+              <p><strong>Note:</strong> Replace <code>{your_api}</code> with the appropriate API value. The default
+                value for most users is <code>main</code>, but teams such as LE, KE, or Edplus may have their own custom
+                API. The <code>method</code> parameter can be one of the following: <code>query</code> or
+                <code>queryV2</code>, <code>search</code>, <code>embeddings</code>, or <code>chunk</code>.
+              </p>
+            </section>
+
+            <section class="docs-section" id="project-owner">
+              <h2 class="section-heading">Project Owner Token</h2>
+              <p>The project owner token allows you to modify your project settings, upload files, manage the knowledge
+                base, and more.</p>
+
+              <h3>File Upload API</h3>
+              <p>To upload a file to your knowledge base, use the following API call:</p>
+              <pre>
+            POST https://api-main-beta.aiml.asu.edu/project
+            Content-Type: application/json
+            Authorization: Bearer &lt;Your_Project_Owner_Token&gt;
+
+            {
+              "resource": "data",
+              "method": "upload",
+              "details": {
+                "project_id": "your_project_id_here",
+                "db_type": "opensearch",
+                "files": [
+                  {
+                    "file_name": "your_file_name.ext",
+                    "search_tags": ["list_of_tags"],
+                    "metadata": {
+                      "any_metadata_field": "value"
+                    },
+                    "selected": true,
+                    "visible": true
+                  }
+                ]
+              }
+            }
+              </pre>
+              <p>This call will return a pre-signed URL that you can use to upload your file.</p>
+
+              <h3>Check Upload Status (Optional)</h3>
+              <p>To check the status of uploaded files, use the same URL with the following payload:</p>
+              <pre>
+            POST https://api-main-beta.aiml.asu.edu/project
+            Content-Type: application/json
+            Authorization: Bearer &lt;Your_Project_Owner_Token&gt;
+
+            {
+              "resource": "data",
+              "method": "list",
+              "details": {
+                "project_id": "your_project_id_here",
+                "db_type": "opensearch"
+              }
+            }
+              </pre>
+              <p>This request is optional and only returns the status of uploaded files.</p>
+            </section>
+
+
+            <!-- </article> -->
+
+            <section id="authentication">
+              <h2>Authentication</h2>
+              <p>This API uses Bearer Token for authentication. The token should be included in the Authorization header
+                of
+                the request.</p>
+              <pre>Authorization: Bearer &lt;Your_Token_Here&gt;</pre>
+              <h3>Common Issues and Troubleshooting</h3>
+              <ul>
+                <li><strong>Invalid key-value pair in Authorization header:</strong> Ensure that the token is correctly
+                  included and formatted. It should be in the form of a Bearer token.</li>
+                <li><strong>400 Bad Request:</strong> Check if the request body or headers are formatted correctly.
+                  Specifically, ensure that all required fields are present and correct.</li>
+                <li><strong>Authorization Issues:</strong> If the token does not have access to the requested resources,
+                  you
+                  might receive errors related to missing permissions. Ensure the correct token is being used.</li>
+                <li><strong>Incorrect Method (POST/GET):</strong> Some endpoints expect a POST request, not a GET.
+                  Ensure the
+                  correct HTTP method is used for each endpoint.</li>
+              </ul>
+            </section>
+
+            <section id="token-information">
+              <h2>Token Information</h2>
+              <p>Most of the tokens we provide is linked to your project ID, so all payload parameters will be used via
+                the project settings
+                unless you override them. Any search will be done against the project ID.</p>
+              <p>For example, if your project ID is <code>your_project_id_here</code>, the token will be linked to that
+                project and you can check on https://jwt.io</p>
+            </section>
+          </article>
+          <section id="methods">
+            <h2>Methods</h2>
+            <section class="docs-section" id="search">
+              <h3>1. POST /search</h3>
+              <p>Perform a search operation.</p>
+
+              <p><strong>Example Query:</strong></p>
+              <pre>
+        {
+          "query": "What is your name?",
+          "search_params": {
+            "collection": "your_project_id_here",
+            <span style="color: grey;"># or collection name if you have a custom collection</span>
+            "source_name": "list of your file names if you want to filter",
+            "top_k": "number of search results to retrieve",
+            "reranker": "boolean",
+            "output_fields": ["source_name", "tags", "content", "score"],
+            <span style="color: grey;"># or whatever you want from query payload</span>
+            "retrieval_type": "chunk" or "neighbor" or "document",
+            "expr": "source_name != 'File_name_1' && source_name != 'File_name_2'"
+          }
+        }
+        </pre>
+
+              <p><strong>Parameters:</strong></p>
+              <ul>
+                <li><strong><code>source_name</code></strong> (array) (Optional):
+                  <p>e.g. ["file_name1.pdf", "file_name2.txt"]</p>
+                  <p>You can use this to filter your data before searching with the file names you provided while
+                    uploading the data.</p>
+                </li>
+
+                <li><strong><code>top_k</code></strong> (int, default is 3):
+                  <p>Number of results to retrieve. You can set the number of chunks or documents you want to retrieve
+                    here. It can range from 1 to any desired number. Keep in mind, setting a higher number may slow the
+                    response time and sometimes reduce quality.</p>
+                </li>
+
+                <li><strong><code>output_fields</code></strong> (array) (Optional):
+                  <p>e.g. ["source_name", "content", "source_type"]</p>
+                  <p>This lets you get the metadata at the end of a response. You need to set the response format to
+                    JSON in the additional parameters.</p>
+                </li>
+
+                <li><strong><code>retrieval_type</code></strong> (string, default: "chunk"):
+                  <p>Options are: 'chunk', 'neighbor', 'document'. This defines how the data is retrieved.</p>
+                </li>
+
+                <li><strong><code>expr</code></strong> (string) (Optional):
+                  <p>Custom expression to filter results, e.g. "metadata1 == 'corresponding_filter' && metadata2 ==
+                    'corresponding_filter'".</p>
+                </li>
+              </ul>
+            </section>
+            <section class="docs-section" id="queryV2">
+              <h3>2. POST /query</h3>
+              <p>Execute a query with specific parameters.</p>
+
+              <p><strong>Example Query:</strong></p>
+              <pre>
+        {
+          "action": "query",
+          "request_source": "override_params",
+          <span style="color: grey;"># if you want to override any params set in your project with the ones you send via the payload below.</span>
+          "query": "What is this?",
+          "model_provider": "model_provider",
+          "model_name": "model_name",
+          "session_id": "testingsid123456",
+          "model_params": {
+            "temperature": "model_params['temperature']",
+            "system_prompt": "system_prompt",
+            "top_p": "model_params['top_p']",
+            "top_k": "model_params['top_k']",
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_weather",
+                  "description": "Get current temperature for a given location.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "string",
+                        "description": "City and country e.g. Bogotá, Colombia"
+                      }
+                    },
+                    "required": ["location"],
+                    "additionalProperties": false
+                  },
+                  "strict": true
+                }
+              },
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_continent",
+                  "description": "Get current continent for a given location.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "string",
+                        "description": "City and country e.g. Bogotá, Colombia"
+                      }
+                    },
+                    "required": ["location"],
+                    "additionalProperties": false
+                  },
+                  "strict": true
+                }
+              }
+            ],
+            "enable_search": true,
+            "search_params": {
+              "collection": "collection",
+              "source_name": "source_name list",
+              "top_k": "top_k",
+              "reranker": "reranker",
+              "retrieval_type": "retrieval_type",
+              "output_fields": ["content", "source_name", "page_number", "source_type"],
+              "prompt_mode": "unrestricted",
+              "rerank": true,
+              "reranker_model": "amazon_rerank",
+              "reranker_provider": "aws",
+              "top_n": 3
+            },
+            "history": [
+              {
+                "query": "What is your name?",
+                "response": "My name is DocuBot."
+              },
+              {
+                "query": "Is AI the solution for everything?",
+                "response": "No, AI is not the solution for everything."
+              }
+            ],
+            "enable_history": true,
+            "response_format": {"type": "json"},
+            "enhance_prompt": {"timezone": "MST", "time": true, "date": true, "verbosity": "brief"}
+          }
+        }
+        </pre>
+
+              <p><strong>Parameters:</strong></p>
+              <ul>
+                <li><strong><code>expr</code></strong> (string) (Optional):
+                  <p>Defines custom expression filters (e.g., "tags != 'Module 0' && tags != 'Syllabus'").</p>
+                </li>
+
+                <li><strong><code>source_name</code></strong> (array) (Optional):
+                  <p>A list of file names (e.g., ["file_name1.pdf", "file_name2.txt"]). Use this to filter your data
+                    before searching with the file names you provided while uploading the data.</p>
+                </li>
+
+                <li><strong><code>top_k</code></strong> (int, default is 3):
+                  <p>Set the number of chunks or documents you want to retrieve. This can range from 1 to the desired
+                    number. Keep in mind, higher numbers may slow response time and reduce quality.</p>
+                </li>
+
+                <li><strong><code>output_fields</code></strong> (array) (Optional):
+                  <p>e.g., ["source_name", "content", "source_type"]. This lets you get the metadata at the end of a
+                    response. Set the response format to JSON in the additional parameters.</p>
+                </li>
+
+                <li><strong><code>retrieval_type</code></strong> (string, default: "chunk"):
+                  <p>Options are: 'chunk', 'neighbor', 'document'. This defines how the data is retrieved.</p>
+                </li>
+
+                <li><strong><code>prompt_mode</code></strong> (string):
+                  <p>e.g., "restricted", "unrestricted", or "custom". Defines the mode for the prompt used in search
+                    queries.</p>
+                </li>
+
+                <li><strong><code>search_prompt</code></strong> (string) (Required when <code>prompt_mode</code> is set
+                  to "custom"):
+                  <p>Custom search prompt when prompt_mode is set to custom (e.g., "This is your new prompt when search
+                    is enabled.")</p>
+                </li>
+
+                <li><strong><code>enhance_prompt</code></strong> (object):
+                  <p>Parameters to adjust timezone, time, date, and verbosity in the model's responses.</p>
+                  <ul>
+                    <li><strong><code>timezone</code></strong> (string, default: "MST"): Sets the timezone (e.g.,
+                      "MST").</li>
+                    <li><strong><code>time</code></strong> (boolean, default: false): If true, the model will consider
+                      the current time in its responses.</li>
+                    <li><strong><code>date</code></strong> (boolean, default: false): If true, the model will include
+                      the current date in its responses.</li>
+                    <li><strong><code>verbosity</code></strong> (string, default: none): Can be set to "brief",
+                      "detailed", or "succinct" to control the level of detail in the responses.</li>
+                  </ul>
+                </li>
+
+                <li><strong><code>enable_search</code></strong> (boolean, default: false):
+                  <p>If true, enables the search functionality and allows the model to search through your documents.
+                  </p>
+                </li>
+
+                <li><strong><code>enable_history</code></strong> (boolean, default: false):
+                  <p>If true and a session ID is provided, enables the model to use the history from the current
+                    session.</p>
+                </li>
+              </ul>
+              <h3>Models List</h3>
+              <table id="modelTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable(0)">ID</th>
+                    <th onclick="sortTable(1)">Provider</th>
+                    <th onclick="sortTable(2)">Is Active</th>
+                    <th onclick="sortTable(3)">Capabilities</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>claude3_opus</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>llama3-405b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>nova-pro</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>llama3_2-3b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claude2_1</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claude3_sonnet</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>claude4_sonnet</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>claude4_opus</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>nova-lite</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>nova-micro</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>mistral-7b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>llama3_2-90b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>amazon_rerank</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>reranker</td>
+                  </tr>
+                  <tr>
+                    <td>llama3-70b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>llama3-8b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claude3_haiku</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>mistral-large</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claudeinstant</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claude3_7_sonnet</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>claude2</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>llama3_2-1b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>titang1lite</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>titang1express</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>mistral-8x7b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>claude3_5_sonnet</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>cohere_rerank-3_5</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>reranker</td>
+                  </tr>
+                  <tr>
+                    <td>llama3_2-11b</td>
+                    <td>aws</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>geminipro1_5</td>
+                    <td>gcp-deepmind</td>
+                    <td>True</td>
+                    <td>query, vision, audio</td>
+                  </tr>
+                  <tr>
+                    <td>geminiflash2-lite</td>
+                    <td>gcp-deepmind</td>
+                    <td>True</td>
+                    <td>query, vision, audio</td>
+                  </tr>
+                  <tr>
+                    <td>geminiflash2</td>
+                    <td>gcp-deepmind</td>
+                    <td>True</td>
+                    <td>query, vision, audio</td>
+                  </tr>
+                  <tr>
+                    <td>imagen3</td>
+                    <td>gcp-deepmind</td>
+                    <td>True</td>
+                    <td>image</td>
+                  </tr>
+                  <tr>
+                    <td>o1</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4-32k</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>gpt3_5-16k</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4o-transcribe</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>audio</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4_1-nano</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>o3-mini</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>o3</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>tts1hd</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>speech</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4_1</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4_1-mini</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>tts1</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>speech</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4o_mini</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt5</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt5_chat</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt5_mini</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt5_nano</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>dalle3</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>image</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4o</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4o_mini-tts</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>speech</td>
+                  </tr>
+                  <tr>
+                    <td>gpt3_5</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4o_mini-transcribe</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>audio</td>
+                  </tr>
+                  <tr>
+                    <td>whisper-1</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>audio</td>
+                  </tr>
+                  <tr>
+                    <td>o4-mini</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                  <tr>
+                    <td>gpt4turbo</td>
+                    <td>openai</td>
+                    <td>True</td>
+                    <td>query, vision</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Audio Model Example</h3>
+              <pre>
+      {
+        "action": "query",
+        "endpoint": "audio",
+        "query": "What is this audio?",
+        "audio_file": "<Base64_encoded_audio_data>",
+        "model_provider": "openai",
+        "model_name": "whisper-1",
+        "model_params": {
+          "translation": true,
+          "language": "en"
+        },
+        "response_format": {
+          "type": "json"
+        }
+      }
+      </pre>
+              <p><strong>model_params</strong> (dict) (Optional): This contains the model-specific parameters. You can
+                set the <code>translate</code> boolean here (default is False). This is only applicable for the Whisper
+                model (see payload for example). Additionally, a <code>language</code> parameter has been added to
+                specify the language for transcriptions (default is "en" for English ISO Code). See
+                <strong>Language</strong> for various ISO codes and supported languages.
+              </p>
+
+              <p><strong>Language (ISO Code) Examples:</strong></p>
+              <ul>
+                <li>Afrikaans (af), Arabic (ar), Armenian (hy), Azerbaijani (az), Belarusian (be), Bosnian (bs),
+                  Bulgarian (bg), Catalan (ca), Chinese (zh), Croatian (hr), Czech (cs), Danish (da), Dutch (nl),
+                  English (en), Estonian (et), Finnish (fi), French (fr), Galician (gl), German (de), Greek (el), Hebrew
+                  (he), Hindi (hi), Hungarian (hu), Icelandic (is), Indonesian (id), Italian (it), Japanese (ja),
+                  Kannada (kn), Kazakh (kk), Korean (ko), Latvian (lv), Lithuanian (lt), Macedonian (mk), Malay (ms),
+                  Marathi (mr), Maori (mi), Nepali (ne), Norwegian (no), Persian (fa), Polish (pl), Portuguese (pt),
+                  Romanian (ro), Russian (ru), Serbian (sr), Slovak (sk), Slovenian (sl), Spanish (es), Swahili (sw),
+                  Swedish (sv), Tagalog (tl), Tamil (ta), Thai (th), Turkish (tr), Ukrainian (uk), Urdu (ur), Vietnamese
+                  (vi), Welsh (cy).</li>
+              </ul>
+
+              <h3>Vision Model Example</h3>
+              <pre>
+      {
+        "action": "query",
+        "endpoint": "vision",
+        "query": "What is in this image?",
+        "image_file": "<Base64_encoded_image_data>",
+        "model_provider": "openai",
+        "model_name": "gpt4o",
+        "response_format": {
+          "type": "json"
+        }
+      }
+      </pre>
+
+              <h3>Speech Model Example</h3>
+              <pre>
+      {
+        "action": "query",
+        "endpoint": "speech",
+        "query": "This is a test sentence.",
+        "voice": "alloy",
+        "model_provider": "openai",
+        "model_name": "tts1"
+      }
+      </pre>
+              <p><strong>Note:</strong> The <code>voice</code> parameter (default is "alloy") accepts: "alloy", "nova",
+                "echo", "fable", "onyx", "shimmer".</p>
+
+              <h3>Image Generation Model Example</h3>
+              <pre>
+      {
+        "action": "query",
+        "endpoint": "image",
+        "query": "This is a test sentence.",
+        "model_provider": "openai",
+        "model_name": "dalle3"
+      }
+      </pre>
+
+              <h3>Reranker Model Example</h3>
+              <pre>
+      {
+        "query": "query",
+        "model_provider": "aws",
+        "model_name": "reranking_models",
+        "model_params": {
+          "top_n": 3,
+          "documents": [ "list of string of your search results here or anything you want to rerank" ]
+        }
+      }
+      </pre>
+            </section>
+            <section class="docs-section" id="embeddings">
+              <h3>/embeddings method</h3>
+              <pre>
+      {
+          "query": "Hi what is your name?",
+          "embeddings_provider": "openai",
+          "embeddings_model": "ada",
+          "dimensions": 1356,
+          "normalize": true
+      }
+      </pre>
+
+              #### Parameters
+
+              <ul>
+                <li><strong><code>query</code></strong> (string): Your query for getting the embeddings.</li>
+                <li><strong><code>embeddings_provider</code></strong> (string): Options include "openai", "aws",
+                  "azure", "gcp". Specifies the provider for the embeddings.</li>
+                <li><strong><code>embeddings_model</code></strong> (string): The corresponding model for the selected
+                  provider.</li>
+                <li><strong><code>dimensions</code></strong> (int, default is 1024):
+                  <p>For example, 256, 512, or 1024 (only applicable for the titan2 model).</p>
+                </li>
+                <li><strong><code>normalize</code></strong> (boolean, default is false):
+                  <p>Whether to normalize the embeddings (only applicable for the titan2 model).</p>
+                </li>
+              </ul>
+
+              <h4>Supported Models</h4>
+              <p>The following models are supported across different providers:</p>
+              <ul>
+                <li><strong>model_provider = openai, model_name = te3l</strong></li>
+                <li><strong>model_provider = openai, model_name = ada</strong></li>
+                <li><strong>model_provider = openai, model_name = te3s</strong></li>
+                <li><strong>model_provider = aws, model_name = titan</strong></li>
+                <li><strong>model_provider = aws, model_name = titan2</strong></li>
+                <li><strong>model_provider = aws, model_name = ce-english</strong></li>
+                <li><strong>model_provider = aws, model_name = ce-multilingual</strong></li>
+                <li><strong>model_provider = gcp, model_name = gecko</strong></li>
+                <li><strong>model_provider = gcp, model_name = gecko-2</strong></li>
+                <li><strong>model_provider = gcp, model_name = gecko-3</strong></li>
+                <li><strong>model_provider = gcp, model_name = gecko-multilingual</strong></li>
+              </ul>
+            </section>
+            <section class="docs-section" id="chunks">
+              <h3>/chunks method</h3>
+              <p>This endpoint shows how your document will be chunked and tokenized. It supports various chunking
+                strategies and displays the resulting tokens.</p>
+              <pre>
+            {
+              "text": "Text you want to chunk and tokenize",
+              "enable_chunks": true,
+              "enable_tokenizer": true,
+              "chunk_params": {
+                "chunk_strategy": "character",  // Options: "character", "words", "sentence"
+                "chunk_size": 256
+              },
+              "tokenizer_params": {
+                "tokenizer_provider": "openai",
+                "tokenizer_name": "gpt2"  // or another supported model
+              }
+            }
+            </pre>
+
+              <p><strong>Parameters:</strong></p>
+              <ul>
+                <li><strong><code>text</code></strong> (string):
+                  <p>The text that you want to chunk and tokenize.</p>
+                </li>
+                <li><strong><code>enable_chunks</code></strong> (boolean):
+                  <p>Whether to enable chunking of the document (True/False).</p>
+                </li>
+                <li><strong><code>enable_tokenizer</code></strong> (boolean):
+                  <p>Whether to enable tokenization of the document (True/False).</p>
+                </li>
+                <li><strong><code>chunk_params</code></strong> (object):
+                  <p>Defines how the text will be chunked.</p>
+                  <ul>
+                    <li><strong><code>chunk_strategy</code></strong> (string): Options are "character", "words", or
+                      "sentence". Defines the strategy used for chunking.</li>
+                    <li><strong><code>chunk_size</code></strong> (int): The size of each chunk (e.g., 256 characters,
+                      words, or sentence tokens).</li>
+                  </ul>
+                </li>
+                <li><strong><code>tokenizer_params</code></strong> (object):
+                  <p>Defines the tokenizer configuration.</p>
+                  <ul>
+                    <li><strong><code>tokenizer_provider</code></strong> (string): The provider for tokenization (e.g.,
+                      "openai").</li>
+                    <li><strong><code>tokenizer_name</code></strong> (string): The specific tokenizer model to use
+                      (e.g., "gpt2").</li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+            <section id="additional-information">
+              <h2>Additional Information</h2>
+              <p>When testing an endpoint (for example using Postman):</p>
+              <ol>
+                <li>Set the method to POST.</li>
+                <li>Use the URL:
+                  <ul>
+                    <li>For the query endpoint: <code>https://api-main-beta.aiml.asu.edu/query</code></li>
+                    <li>For the search endpoint: <code>https://api-main-beta.aiml.asu.edu/search</code></li>
+                  </ul>
+                </li>
+                <li>In the Headers section, add: <code>Authorization: Bearer &lt;Your_Token_Here&gt;</code></li>
+                <li>In the Body section, select raw and JSON, then add your payload.</li>
+              </ol>
+              <p>Important: Always verify that you are using the correct HTTP method, a valid Bearer token, and that all
+                required parameters are provided.</p>
+            </section>
+
+            <section id="additional-features">
+              <h2>Additional Features</h2>
+              <p>The query endpoint supports audio, vision, and speech models. By adding the parameter
+                <code>"request_source": "override_params"</code> in your payload, you can override any project settings.
+                This
+                allows you to provide custom system prompts and adjust model parameters that may otherwise be set on the
+                platform.
+              </p>
+
+              Adding the parameter "request_source": "override_params" you can override any project settings you have
+              enabled.
+              This means that even if you have a system prompt in your project settings, you can override it by sending
+              this flag and the new system prompt in the payload.
+              You can also override the models and use any models that we offer and not available to select via the UI
+              for example, speech, audio and vision models.
+
+            </section>
+            </header>
+        </article>
+
+        <footer class="footer">
+          <div class="container text-center py-5">
+            <small class="copyright">Designed with ❤️ by the
+              <a class="theme-link" href="http://ai.asu.edu" target="_blank">AI Acceleration Team</a>
+              for developers by developers</small>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="changelogModal" tabindex="-1" aria-labelledby="changelogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title px-3 py-1" id="changelogModalLabel">Changelog</h4>
+          <button type="button" class="btn-close p-4" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <h6 class="mt-3"><span class="p-2">Update</span> - 05/09/2025</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We have added a new method for embeddings. You can now get embeddings for your text
+                    using the /embeddings endpoint.</li>
+                  <li class="ms-3">We have added a new method for chunks. You can now see how your document will be
+                    chunked and tokenized.</li>
+                  <li class="ms-3">We have added a new method for query. You can now query your data using the /query
+                    endpoint.</li>
+                  <li class="ms-3">We have added a new method for search. You can now search your data using the /search
+                    endpoint.</li>
+                  <li class="ms-3">We have added a new endpoint for audio in the query method. You can now get audio
+                    transcriptions using the /query method and audio endpoint.</li>
+                  <li class="ms-3">We have added a new endpoint for vision in the query method. You can now get image
+                    transcriptions using the /query method and vision endpoint.</li>
+                  <li class="ms-3">We have added a new endpoint for speech in the query method. You can now get
+                    text-to-speech using the /query method and speech endpoint.</li>
+                  <li class="ms-3">We have added a new endpoint for image in the query method. You can now get image
+                    generation using the /query method and image endpoint.</li>
+                  <li class="ms-3">We have new models added, new payloads and more customization options</li>
+                  <li class="ms-3">We now support function calling via tools for openai models, overwriting the project
+                    parameters on MAB via request source payload = "override_params"</li>
+                </ul>
+                <h6 class="mt-3"><span class="p-2">Update</span> - 12/20/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">New models added - nova pro, nova lite and nova micro. Two reranking models from
+                    cohere and amazon have been added.</li>
+                  <li class="ms-3">You can now pass custom expressions in your search_params to have better control over
+                    the results returned. You can also ask for score in the output_fields now.</li>
+                  <li class="ms-3">Nova pro and Nova lite are vision models as well with a higher context length.</li>
+                </ul>
+                <h6 class="mt-3"><span class="p-2">Update</span> - 09/24/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We have added a translation feature for the openai whisper-1 model. The model params
+                    takes in a translate boolean as well as language which needs to be passed in.</li>
+                </ul>
+                <h6 class="mt-3"><span class="p-2">Update</span> - 09/16/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We now support o1 and o1 mini models from openai. Keep in mind these models do not
+                    support temperature, streaming, system prompt values.</li>
+                </ul>
+                <h6 class="mt-3"><span class="p-2">Update</span> - 09/03/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We have updated the embeddings endpoint. A new model titan2 has been added along with
+                    2 new parameters for it.</li>
+                </ul>
+
+                <h6 class="mt-3"><span class="p-2">Update</span> - 08/29/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We have added two new endpoints and a different format to call them: speech for
+                    text-to-speech and image for image generation. Please check their respective sections to know more.
+                  </li>
+                </ul>
+
+                <h6 class="mt-3"><span class="p-2">Update</span> - 08/09/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">We have added claude 3.5 sonnet image and query model.</li>
+                </ul>
+
+                <h6 class="mt-3"><span class="p-2">Update</span> - 08/06/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">llama2-13b and llama2-70b have been deprecated. Please use their successor llama3
+                    models.</li>
+                  <li class="ms-3">8 new image models and 2 new audio models have been added. Go to the endpoint section
+                    to see them.</li>
+                  <li class="ms-3">A new experimental feature has been added to projects: you can now evaluate your
+                    chunks after the response has been generated and decide what sources to show.</li>
+                  <li class="ms-3">We also have a harmfulness evaluation metric.</li>
+                </ul>
+
+                <h6 class="mt-3"><span class="p-2">Update</span> - 07/29/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">A new model, llama3-405b, has been added.</li>
+                  <li class="ms-3">Context limits for all llama3 models increased to 128k, along with mistral-large.
+                  </li>
+                </ul>
+
+                <h6 class="mt-3"><span class="p-2">Update</span> - 07/08/2024</h6>
+                <ul class="mt-3 mb-5">
+                  <li class="ms-3">A new model, gpt4o_mini, has been added.</li>
+                  <li class="ms-3">Documentation has been updated to add the missing <code>history</code> parameter in
+                    the query endpoint.</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js" type="text/javascript"></script>
+  <script>
+    largeFunction();
+  </script>
+  <script>
+    function sortTable(columnIndex) {
+      var table = document.getElementById("modelTable");
+      var rows = Array.from(table.rows).slice(1);
+      var sortedRows = rows.sort((a, b) => {
+        var cellA = a.cells[columnIndex].textContent.trim().toLowerCase();
+        var cellB = b.cells[columnIndex].textContent.trim().toLowerCase();
+        return cellA.localeCompare(cellB);
+      });
+      table.tBodies[0].append(...sortedRows);
+    }
+  </script>
+  <script>
+    dropDownButton()
+  </script>
+
+</body>
+
+</html>

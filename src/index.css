@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 338 62% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 91%;
+    --secondary-foreground: 224 71% 4%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 40%;
+    --accent: 45 100% 58%;
+    --accent-foreground: 28 37% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 338 62% 32%;
+    --radius: 0.75rem;
+    --gold: 45 100% 58%;
+    --gold-foreground: 28 37% 15%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background font-sans text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .hub-app {
+    @apply flex h-screen max-h-screen flex-col overflow-hidden bg-background;
+  }
+
+  .hub-body {
+    @apply flex min-h-0 flex-1 flex-col overflow-hidden;
+  }
+
+  .hub-transcript {
+    @apply min-h-0 flex-1 overflow-y-auto scroll-smooth;
+  }
+
+  .hub-transcript-inner {
+    @apply mx-auto w-full max-w-3xl space-y-8 px-4 py-6 sm:px-6;
+  }
+
+  .conversation-turn {
+    @apply scroll-mt-6;
+  }
+
+  .chat-bubble-user {
+    @apply ml-auto max-w-[min(100%,540px)] rounded-3xl rounded-br-lg border border-primary/20 bg-gradient-to-br from-primary/[0.14] to-primary/[0.06] px-5 py-4 shadow-md;
+  }
+
+  .chat-bubble-assistant {
+    @apply max-w-full rounded-3xl rounded-tl-lg border border-border/80 bg-card px-5 py-5 shadow-md ring-1 ring-black/[0.05];
+  }
+
+  .chat-dock {
+    @apply sticky bottom-0 z-20 shrink-0 border-t border-border/80 bg-card/95 px-4 py-4 backdrop-blur-md sm:px-6;
+  }
+
+  .chat-dock-inner {
+    @apply mx-auto w-full max-w-3xl space-y-3;
+  }
+}

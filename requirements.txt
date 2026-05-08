@@ -1,0 +1,4 @@
+# Optional Python dependencies for the legacy CreateAI API client.
+# The PRD scaffold itself is frontend-only and runs with npm scripts.
+requests>=2.32.0
+python-dotenv>=1.0.0
